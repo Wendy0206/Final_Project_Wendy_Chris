@@ -85,8 +85,9 @@ with a fixed width and height */
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	width: 97%;
-	margin: auto;	
+	width: 100%;
+	margin: auto;
+	overflow: hidden;	
 }
 .login_div{
 	width: 80%;

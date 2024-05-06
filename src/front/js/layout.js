@@ -59,7 +59,17 @@ const Layout = () => {
     const [myProperties, setMyProperties] = useState([])
     const [filterListings, setFilterListings] = useState("Active")
     const [mySchedule, setMySchedule] = useState([]);
-    const [currentUser, setCurrentUser] = useState({})
+    const [currentUser, setCurrentUser] = useState({
+        email: "test@gmail.com",
+        full_name: "test Joe",
+        id: 1,
+        phone: "7543649419",
+        role: "User",
+        token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNDk2NTcyNSwianRpIjoiMTYyM2U1YTYtNWJlYS00ZTEzLWI5MTMtODA5ZTQyOGRmNjU5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzE0OTY1NzI1LCJjc3JmIjoiODAxNWViZTAtOTM5ZC00YjNhLTgwNzAtODZhNDk1YWRiMmFjIiwiZXhwIjoxNzE0OTY2NjI1fQ.aivx5q-hjkO6Brjey835gEnOOETUaT7bUHrrwGGJLio"
+      
+
+        
+    })
 
     const [localRole, setLocalRole] = useState('')
 
@@ -84,7 +94,9 @@ const Layout = () => {
                 }
             }>
                 <BrowserRouter basename={basename}>
+                    <Navbar/>
                     <ScrollToTop>
+
                         <Routes>
                             <Route element={<Login />} path="/" />
                             <Route element={<Home />} path="/home" />
