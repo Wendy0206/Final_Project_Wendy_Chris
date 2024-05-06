@@ -44,8 +44,9 @@ nav .wrapper{
   border-radius: 5px;
   transition: all 0.3s ease;
 }
-.nav-links li a:hover{
+.nav-links li span:hover{
   background: #3A3B3C;
+  border-radius: 30px;
 }
 .nav-links .mobile-item{
   display: none;
@@ -66,7 +67,7 @@ nav .wrapper{
   opacity: 1;
   visibility: visible;
 }
-.drop-menu li a{
+.drop-menu li span{
   width: 100%;
   display: block;
   padding: 0 0 0 15px;

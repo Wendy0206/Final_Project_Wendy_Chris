@@ -26,6 +26,19 @@ export const Navbar = () => {
          
         </ul>
       </li>
+
+	  <li>
+        <span href="#" class="desktop-item">Profile</span>
+        <input type="checkbox" id="showDrop"/>
+        <label for="showDrop" class="mobile-item">Profile</label>
+        <ul class="drop-menu">
+          <li><span >Personal Info</span></li>
+       
+          <li><span>Preference</span></li>
+		  <li><span >Log out</span></li>
+         
+        </ul>
+      </li>
      
       <li><span >Feedback</span></li>
 	  <li><span >Schedule</span></li>
