@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
-import rigoImageUrl from "../../img/rigo-baby.jpg";
+
 import "../../styles/home.css";
+import "../../styles/login.css";
 import duster from "../../img/duster_1.png";
-import sweep from "../../img/sweep2.png";
 
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../layout";
@@ -163,7 +163,7 @@ export const Login = () => {
 
 
 	return (
-		<>
+	
 			<div className="container mt-5" id='container'>
 				<div className="form-container sign-up-container">
 					<form>
@@ -256,6 +256,6 @@ export const Login = () => {
 					</div>
 				</div>
 			</div >
-		</>
+		
 	);
 };

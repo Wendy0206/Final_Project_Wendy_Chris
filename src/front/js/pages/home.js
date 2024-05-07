@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
-import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
@@ -103,7 +103,7 @@ export const Home = () => {
 	return (
 
 		<div className="container">
-			<h1>test</h1>
+			<h1>test new component</h1>
 			<button type="button" className="btn btn-secondary" onClick={() => fetch_listing()}>Fetch api</button><br /><br /><br />
 			<button type="button" className="btn btn-secondary" onClick={() => load_property()}>Test property</button><br /><br /><br />
 			<button type="button" className="btn btn-secondary" onClick={() => load_listing()}>Add Listing randomly</button><br /><br /><br />
@@ -112,27 +112,8 @@ export const Home = () => {
 				<button type="button" className="btn btn-secondary" >a Link to Dashboard</button><br /><br /><br />
 			</Link>
 
-			<Link to='/mylistings'>
-				<button type="button" className="btn btn-secondary" >a Link to MyListings</button><br /><br /><br />
-			</Link>
-
-			<Link to='/editprofile'>
-				<button type="button" className="btn btn-secondary" >a Link to edit profile</button><br /><br /><br />
-
-			</Link>
-
-			<Link to='/wdashboard'>
-				<button type="button" className="btn btn-secondary" >Link to worker dashboard</button><br /><br /><br />
-
-			</Link>
-
-			<Link to='/whistory'>
-				<button type="button" className="btn btn-secondary" >worker History</button><br /><br /><br />
-
-			</Link>
-
-			<Link to='/wschedule'>
-				<button type="button" className="btn btn-secondary" >Go to schedule</button><br /><br />
+			<Link to='/testlayout'>
+				<button type="button" className="btn btn-secondary" >Go to our new test</button><br /><br />
 			</Link>
 
 

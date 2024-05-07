@@ -127,8 +127,8 @@ export const Landing = () => {
                                 }
                             >My Profile</div>
                             <div className={`col-12 border-bottom border-dark
-                            ${menu == "history" ? "activeMenu" : "myMenu"}`}
-                                onClick={() => setMenu("history")}
+                            ${menu == "hhistory" ? "activeMenu" : "myMenu"}`}
+                                onClick={() => setMenu("hhistory")}
                             >My History</div>
                             <div className={`col-12 border-bottom border-dark
                             ${menu == "payments" ? "activeMenu" : "myMenu"}`}
@@ -155,27 +155,32 @@ export const Landing = () => {
                     </div>
                     {/* End left navigation for "User" start main body of landing dashboard for "User" */}
                     {/* Listings Body below  */}
-                    <div className="col-10 text-center dashComponents fs-3 pt-3"
-                        style={menu == "listings" ? { display: "block" } : { display: "none" }}
-                    >
-                        <div className="row d-flex justify-content-center pt-1 mb-2">
-                            <div className="col-3 ps-5">
-                                <span className="paymentAlert ms-5"
-                                    style={scheduledPaymentDue.length >= 1 ? { display: "block" } : { display: "none" }}
-                                    onClick={() => {
-                                        setDisplay("payments")
-                                        setMenu("payments")
-                                    }
-                                    }
-                                >
-                                    <i className="fa-solid fa-bell fa-shake px-1 fs-3 text-light"></i>
-                                    <span className="supTest">{scheduledPaymentDue.length}</span>
-                                </span>
-                            </div>
-                            <div className="col-6"
-                            ><h3>My Listings</h3></div>
-                            <div className="col-3">
-                                {/* <div className="dropdown">
+
+                    {
+                        menu == 'listings' ?
+
+                            <div className="col-10 text-center dashComponents fs-3 pt-3"
+                            // style={menu == "listings" ? { display: "block" } : { display: "none" }}
+
+                            >
+                                <div className="row d-flex justify-content-center pt-1 mb-2">
+                                    <div className="col-3 ps-5">
+                                        <span className="paymentAlert ms-5"
+                                            style={scheduledPaymentDue.length >= 1 ? { display: "block" } : { display: "none" }}
+                                            onClick={() => {
+                                                setDisplay("payments")
+                                                setMenu("payments")
+                                            }
+                                            }
+                                        >
+                                            <i className="fa-solid fa-bell fa-shake px-1 fs-3 text-light"></i>
+                                            <span className="supTest">{scheduledPaymentDue.length}</span>
+                                        </span>
+                                    </div>
+                                    <div className="col-6"
+                                    ><h3>My Listings</h3></div>
+                                    <div className="col-3">
+                                        {/* <div className="dropdown">
                                     <button className="btn button-24 dropdown-toggle me-3 mt-1" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                         Filter Listings
                                     </button>
@@ -193,149 +198,173 @@ export const Landing = () => {
                                 </div> */}
 
 
+                                    </div>
+                                </div>
+                                <div className="col-12"><Header /></div>
+                                <div className="col-12">
+                                    <MyListings />
+                                </div>
                             </div>
-                        </div>
-                        <div className="col-12"><Header /></div>
-                        <div className="col-12">
-                            <MyListings />
-                        </div>
-                    </div>
-                    {/* Properties body for "User" below  */}
-                    <div className="col-10 text-center dashComponents fs-3 pt-3"
-                        style={menu == "properties" ? { display: "block" } : { display: "none" }}
-                    >
-                        <div className="row d-flex justify-content-center pt-1 mb-2">
-                            <div className="col-3 ps-5">
-                                <span className="paymentAlert ms-5"
-                                    style={scheduledPaymentDue.length >= 1 ? { display: "block" } : { display: "none" }}
-                                    onClick={() => {
-                                        setDisplay("payments")
-                                        setMenu("payments")
-                                    }
-                                    }
+
+                            :
+                            menu == 'properties' ?
+
+                                /* Properties body for "User" below  */
+                                <div className="col-10 text-center dashComponents fs-3 pt-3"
+                                // style={menu == "properties" ? { display: "block" } : { display: "none" }}
 
                                 >
-                                    <i className="fa-solid fa-bell fa-shake px-1 fs-3 text-light"></i>
-                                    <span className="supTest">{scheduledPaymentDue.length}</span>
-                                </span>
-                            </div>
-                            <div className="col-6"><h2>My Properties</h2></div>
-                            <div className="col-3"><span className="button-24 me-3 mt-1"
-                                style={display == "addProp" ? { display: "none" } : { display: "block" }}
-                                onClick={() => setDisplay("addProp")}
-                            >Add new property</span>
-                                <span className="button-24 me-3 mt-1"
-                                    style={display == "addProp" ? { display: "block" } : { display: "none" }}
-                                    onClick={() => setDisplay("propMain")}
-                                >Back to properties</span></div>
-                            <div className="col-12"
-                                style={display == "addProp" ? { display: "block" } : { display: "none" }}
-                            ><AddProperty /></div>
-                            <div className="col-12"
-                                style={display == "propMain" ? { display: "block" } : { display: "none" }}
-                            ><Dashboard /></div>
-                        </div>
-                    </div>
+                                    <div className="row d-flex justify-content-center pt-1 mb-2">
+                                        <div className="col-3 ps-5">
+                                            <span className="paymentAlert ms-5"
+                                                style={scheduledPaymentDue.length >= 1 ? { display: "block" } : { display: "none" }}
+                                                onClick={() => {
+                                                    setDisplay("payments")
+                                                    setMenu("payments")
+                                                }
+                                                }
 
-                    {/* Profile Body for "User" below  */}
-                    <div className="col-10 text-center dashComponents fs-3 pt-3"
-                        style={menu == "profile" ? { display: "block" } : { display: "none" }}
-                    >
-                        <div className="row d-flex justify-content-center pt-1 mb-2">
-                            <div className="col-3 ps-5">
-                                <span className="paymentAlert ms-5"
-                                    style={scheduledPaymentDue.length >= 1 ? { display: "block" } : { display: "none" }}
-                                    onClick={() => {
-                                        setDisplay("payments")
-                                        setMenu("payments")
-                                    }
-                                    }
+                                            >
+                                                <i className="fa-solid fa-bell fa-shake px-1 fs-3 text-light"></i>
+                                                <span className="supTest">{scheduledPaymentDue.length}</span>
+                                            </span>
+                                        </div>
+                                        <div className="col-6"><h2>My Properties</h2></div>
+                                        <div className="col-3"><span className="button-24 me-3 mt-1"
+                                            style={display == "addProp" ? { display: "none" } : { display: "block" }}
+                                            onClick={() => setDisplay("addProp")}
+                                        >Add new property</span>
+                                            <span className="button-24 me-3 mt-1"
+                                                style={display == "addProp" ? { display: "block" } : { display: "none" }}
+                                                onClick={() => setDisplay("propMain")}
+                                            >Back to properties</span></div>
+                                        <div className="col-12"
+                                            style={display == "addProp" ? { display: "block" } : { display: "none" }}
+                                        ><AddProperty /></div>
+                                        <div className="col-12"
+                                            style={display == "propMain" ? { display: "block" } : { display: "none" }}
+                                        ><Dashboard /></div>
+                                    </div>
+                                </div>
 
-                                >
-                                    <i className="fa-solid fa-bell fa-shake px-1 fs-3 text-light"></i>
-                                    <span className="supTest">{scheduledPaymentDue.length}</span>
-                                </span>
-                            </div>
-                            <div className="col-6"><h2>My Profile</h2></div>
-                            <div className="col-3"><span className="button-24 me-3 mt-1"
-                                style={display == "myProfile" ? { display: "block" } : { display: "none" }}
-                                onClick={() => setDisplay("editProfile")}
-                            >Edit Profile</span>
-                                <span className="button-24 me-3 mt-1"
-                                    style={display == "editProfile" ? { display: "block" } : { display: "none" }}
-                                    onClick={() => setDisplay("myProfile")}
-                                >My Profile</span></div>
-                        </div>
-                        <div
-                            style={display == "editProfile" ? { display: "block" } : { display: "none" }}
-                        ><EditProfile /></div>
-                        <div
-                            style={display == "myProfile" ? { display: "block" } : { display: "none" }}
-                        ><StaticProfile /></div>
-                    </div>
+                                :
+                                menu == 'profile' ?
 
-                    {/* History body for "User" Below  */}
-                    <div className="col-10 text-center dashComponents fs-3 pt-3"
-                        style={menu == "history" ? { display: "block" } : { display: "none" }}
-                    >
-                        <div className="row d-flex justify-content-center pt-1 mb-2">
-                            <div className="col-3 ps-5">
-                                <span className="paymentAlert ms-5"
-                                    style={scheduledPaymentDue.length >= 1 ? { display: "block" } : { display: "none" }}
-                                    onClick={() => {
-                                        setDisplay("payments")
-                                        setMenu("payments")
-                                    }
-                                    }
 
-                                >
-                                    <i className="fa-solid fa-bell fa-shake px-1 fs-3 text-light"></i>
-                                    <span className="supTest">{scheduledPaymentDue.length}</span>
-                                </span>
-                            </div>
-                            <div className="col-6"><h2>My History</h2></div>
-                            <div className="col-3"></div>
-                        </div>
-                        <div><HHistory /></div>
+                                    /* Profile Body for "User" below  */
 
-                    </div>
+                                    <div className="col-10 text-center dashComponents fs-3 pt-3"
+                                    // style={menu == "profile" ? { display: "block" } : { display: "none" }}
+                                    >
+                                        <div className="row d-flex justify-content-center pt-1 mb-2">
+                                            <div className="col-3 ps-5">
+                                                <span className="paymentAlert ms-5"
+                                                    style={scheduledPaymentDue.length >= 1 ? { display: "block" } : { display: "none" }}
+                                                    onClick={() => {
+                                                        setDisplay("payments")
+                                                        setMenu("payments")
+                                                    }
+                                                    }
 
-                    {/* Payments Body for "User" Below  */}
-                    <div className="col-10 text-center dashComponents fs-3 pt-3"
-                        style={menu == "payments" ? { display: "block" } : { display: "none" }}
-                    >
-                        <div className="row d-flex justify-content-center pt-1 mb-2">
-                            <div className="col-3 ps-5">
-                                <span className="paymentAlert ms-5"
-                                    style={scheduledPaymentDue.length >= 1 ? { display: "block" } : { display: "none" }}
-                                    onClick={() => {
-                                        setDisplay("payments")
-                                        setMenu("payments")
-                                    }
-                                    }
+                                                >
+                                                    <i className="fa-solid fa-bell fa-shake px-1 fs-3 text-light"></i>
+                                                    <span className="supTest">{scheduledPaymentDue.length}</span>
+                                                </span>
+                                            </div>
+                                            <div className="col-6"><h2>My Profile</h2></div>
+                                            <div className="col-3"><span className="button-24 me-3 mt-1"
+                                                style={display == "myProfile" ? { display: "block" } : { display: "none" }}
+                                                onClick={() => setDisplay("editProfile")}
+                                            >Edit Profile</span>
+                                                <span className="button-24 me-3 mt-1"
+                                                    style={display == "editProfile" ? { display: "block" } : { display: "none" }}
+                                                    onClick={() => setDisplay("myProfile")}
+                                                >My Profile</span></div>
+                                        </div>
+                                        <div
+                                            style={display == "editProfile" ? { display: "block" } : { display: "none" }}
+                                        ><EditProfile /></div>
+                                        <div
+                                            style={display == "myProfile" ? { display: "block" } : { display: "none" }}
+                                        ><StaticProfile /></div>
+                                    </div>
 
-                                >
-                                    <i className="fa-solid fa-bell fa-shake px-1 fs-3 text-light"></i>
-                                    <span className="supTest">{scheduledPaymentDue.length}</span>
-                                </span>
-                            </div>
-                            <div className="col-6"><h2>My Payments</h2></div>
-                            <div className="col-3"><span className="button-24 me-3 mt-1"
-                                style={display == "payments" ? { display: "block" } : { display: "none" }}
-                                onClick={() => setDisplay("paymentHistory")}
-                            >Paymeny History</span>
-                                <span className="button-24 me-3 mt-1"
-                                    style={display == "paymentHistory" ? { display: "block" } : { display: "none" }}
-                                    onClick={() => setDisplay("payments")}
-                                >Make Payments</span></div>
-                        </div>
-                        <div
-                            style={display == "payments" ? { display: "block" } : { display: "none" }}
-                        ><MyPayments /></div>
-                        <div
-                            style={display == "paymentHistory" ? { display: "block" } : { display: "none" }}
-                        ><PaymentHistory /></div>
-                    </div>
+                                    :
+
+                                    menu == 'hhistory' ?
+
+                                        /* History body for "User" Below  */
+                                        <div className="col-10 text-center dashComponents fs-3 pt-3"
+                                        // style={menu == "history" ? { display: "block" } : { display: "none" }}
+                                        >
+                                            <div className="row d-flex justify-content-center pt-1 mb-2">
+                                                <div className="col-3 ps-5">
+                                                    <span className="paymentAlert ms-5"
+                                                        style={scheduledPaymentDue.length >= 1 ? { display: "block" } : { display: "none" }}
+                                                        onClick={() => {
+                                                            setDisplay("payments")
+                                                            setMenu("payments")
+                                                        }
+                                                        }
+
+                                                    >
+                                                        <i className="fa-solid fa-bell fa-shake px-1 fs-3 text-light"></i>
+                                                        <span className="supTest">{scheduledPaymentDue.length}</span>
+                                                    </span>
+                                                </div>
+                                                <div className="col-6"><h2>My History</h2></div>
+                                                <div className="col-3"></div>
+                                            </div>
+                                            <div><HHistory /></div>
+
+                                        </div>
+                                        :
+
+                                        menu == 'payments' ?
+
+
+
+                                            /* Payments Body for "User" Below  */
+                                            <div className="col-10 text-center dashComponents fs-3 pt-3"
+                                            // style={menu == "payments" ? { display: "block" } : { display: "none" }}
+                                            >
+                                                <div className="row d-flex justify-content-center pt-1 mb-2">
+                                                    <div className="col-3 ps-5">
+                                                        <span className="paymentAlert ms-5"
+                                                            style={scheduledPaymentDue.length >= 1 ? { display: "block" } : { display: "none" }}
+                                                            onClick={() => {
+                                                                setDisplay("payments")
+                                                                setMenu("payments")
+                                                            }
+                                                            }
+
+                                                        >
+                                                            <i className="fa-solid fa-bell fa-shake px-1 fs-3 text-light"></i>
+                                                            <span className="supTest">{scheduledPaymentDue.length}</span>
+                                                        </span>
+                                                    </div>
+                                                    <div className="col-6"><h2>My Payments</h2></div>
+                                                    <div className="col-3"><span className="button-24 me-3 mt-1"
+                                                        style={display == "payments" ? { display: "block" } : { display: "none" }}
+                                                        onClick={() => setDisplay("paymentHistory")}
+                                                    >Paymeny History</span>
+                                                        <span className="button-24 me-3 mt-1"
+                                                            style={display == "paymentHistory" ? { display: "block" } : { display: "none" }}
+                                                            onClick={() => setDisplay("payments")}
+                                                        >Make Payments</span></div>
+                                                </div>
+                                                <div
+                                                    style={display == "payments" ? { display: "block" } : { display: "none" }}
+                                                ><MyPayments /></div>
+                                                <div
+                                                    style={display == "paymentHistory" ? { display: "block" } : { display: "none" }}
+                                                ><PaymentHistory /></div>
+                                            </div>
+
+                                            :
+                                            <div>Hello</div>
+
+                    }
                 </div>
                 <Footer />
             </div>
@@ -345,6 +374,7 @@ export const Landing = () => {
             {/* ///////////////////////////////////////////////////////////////////////////////////////////////////  */}
 
             <div style={role == "Worker" ? { display: "block" } : { display: "none" }}>
+
                 <div className="row d-flex justify-content-center pt-3">
                     <div className="col-2 text-center">
                         <div className="row">
@@ -400,77 +430,99 @@ export const Landing = () => {
 
                     {/* End left navigation for "Worker" start main body of landing dashboard for "Worker" */}
                     {/* Listings Body "WorkerDashboard" below  */}
-                    <div className="col-10 text-center dashComponents fs-3 pt-3"
-                        style={menu == "listings" ? { display: "block" } : { display: "none" }}
-                    >
-                        <div className="row d-flex justify-content-center pt-1 mb-2">
-                            <div className="col-3"></div>
-                            <div className="col-6">Available Jobs</div>
-                            <div className="col-3"></div>
-                        </div>
-                        <div
-                            style={display == "listings" ? { display: "block" } : { display: "none" }}
-                        >
-                            {/* Add logic for when there are no avaible listings here or in WDashboard  */}
-                            <WDashboard /></div>
-                    </div>
 
-                    {/* Worker Profile Body Below  */}
-                    <div className="col-10 text-center dashComponents fs-3 pt-3"
-                        style={menu == "myProfile" ? { display: "block" } : { display: "none" }}
-                    >
-                        <div className="row d-flex justify-content-center pt-1 mb-2">
-                            <div className="col-3"></div>
-                            <div className="col-6"><h2>My Profile</h2></div>
-                            <div className="col-3"><span className="button-24 me-3 mt-1"
-                                style={display == "myProfile" ? { display: "block" } : { display: "none" }}
-                                onClick={() => setDisplay("editProfile")}
-                            >Edit Profile</span>
-                                <span className="button-24 me-3 mt-1"
-                                    style={display == "editProfile" ? { display: "block" } : { display: "none" }}
-                                    onClick={() => setDisplay("myProfile")}
-                                >Back to My Profile</span></div>
-                        </div>
-                        <div
-                            style={display == "editProfile" ? { display: "block" } : { display: "none" }}
-                        ><EditProfile /></div>
-                        <div
-                            style={display == "myProfile" ? { display: "block" } : { display: "none" }}
-                        ><WorkerProfile /></div>
-                    </div>
+                    {
+
+                        menu == 'listings' ?
 
 
-                    {/* Worker Schedule Body Below  */}
-                    <div className="col-10 text-center dashComponents fs-3 pt-3"
-                        style={menu == "mySchedule" ? { display: "block" } : { display: "none" }}
-                    >
-                        <div className="row d-flex justify-content-center pt-1 mb-2">
-                            <div className="col-3"></div>
-                            <div className="col-6"><h2>My Schedule</h2></div>
-                            <div className="col-3"></div>
-                        </div>
-                        <div
-                            style={display == "mySchedule" ? { display: "block" } : { display: "none" }}
-                        ><WSchedule /></div>
-                    </div>
-
-
-
-
-
-
-                    {/* Worker History Body Below  */}
-                    <div className="col-10 text-center dashComponents fs-3 pt-3"
-                        style={menu == "history" ? { display: "block" } : { display: "none" }}                    >
-                        <div className="row d-flex justify-content-center pt-1 mb-2">
-                            <div className="col-3"></div>
-                            <div className="col-6"><h2>My Work History</h2></div>
-                            <div className="col-3">
+                            <div className="col-10 text-center dashComponents fs-3 pt-3"
+                            // style={menu == "listings" ? { display: "block" } : { display: "none" }}
+                            >
+                                <div className="row d-flex justify-content-center pt-1 mb-2">
+                                    <div className="col-3"></div>
+                                    <div className="col-6">Available Jobs</div>
+                                    <div className="col-3"></div>
+                                </div>
+                                <div
+                                // style={display == "listings" ? { display: "block" } : { display: "none" }}
+                                >
+                            /* Add logic for when there are no avaible listings here or in WDashboard  */
+                                    <WDashboard /></div>
                             </div>
-                        </div>
-                        <div><WHistory /></div>
+                            :
+                            menu == 'myProfile' ?
 
-                    </div>
+
+
+                                /* Worker Profile Body Below  */
+
+                                <div className="col-10 text-center dashComponents fs-3 pt-3"
+                                // style={menu == "myProfile" ? { display: "block" } : { display: "none" }}
+                                >
+                                    <div className="row d-flex justify-content-center pt-1 mb-2">
+                                        <div className="col-3"></div>
+                                        <div className="col-6"><h2>My Profile</h2></div>
+                                        <div className="col-3"><span className="button-24 me-3 mt-1"
+                                            style={display == "myProfile" ? { display: "block" } : { display: "none" }}
+                                            onClick={() => setDisplay("editProfile")}
+                                        >Edit Profile</span>
+                                            <span className="button-24 me-3 mt-1"
+                                                style={display == "editProfile" ? { display: "block" } : { display: "none" }}
+                                                onClick={() => setDisplay("myProfile")}
+                                            >Back to My Profile</span></div>
+                                    </div>
+                                    <div
+                                        style={display == "editProfile" ? { display: "block" } : { display: "none" }}
+                                    ><EditProfile /></div>
+                                    <div
+                                        style={display == "myProfile" ? { display: "block" } : { display: "none" }}
+                                    ><WorkerProfile /></div>
+                                </div>
+
+                                :
+                                menu == "mySchedule" ?
+
+
+                                    /* Worker Schedule Body Below  */
+                                    <div className="col-10 text-center dashComponents fs-3 pt-3"
+                                    // style={menu == "mySchedule" ? { display: "block" } : { display: "none" }}
+                                    >
+                                        <div className="row d-flex justify-content-center pt-1 mb-2">
+                                            <div className="col-3"></div>
+                                            <div className="col-6"><h2>My Schedule</h2></div>
+                                            <div className="col-3"></div>
+                                        </div>
+                                        <div
+                                            style={display == "mySchedule" ? { display: "block" } : { display: "none" }}
+                                        ><WSchedule /></div>
+                                    </div>
+
+
+                                    :
+
+                                    menu == "history" ?
+
+
+
+                                        /* Worker History Body Below  */
+                                        <div className="col-10 text-center dashComponents fs-3 pt-3"
+                                        // style={menu == "history" ? { display: "block" } : { display: "none" }}            
+                                        >
+                                            <div className="row d-flex justify-content-center pt-1 mb-2">
+                                                <div className="col-3"></div>
+                                                <div className="col-6"><h2>My Work History</h2></div>
+                                                <div className="col-3">
+                                                </div>
+                                            </div>
+                                            <div><WHistory /></div>
+
+
+
+                                        </div>
+
+                                        : <div>Hello</div>
+                    }
                 </div>
                 <Footer />
             </div >

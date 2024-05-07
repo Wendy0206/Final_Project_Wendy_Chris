@@ -15,6 +15,7 @@ import { Ratings } from "./component/ratings";
 import { MyPayments } from "./component/mypayments";
 import { HostHistory } from "./component/hosthistory";
 import { HHistory } from "./component/hhistory";
+import { TestLayout } from "./pages/testlayout";
 import { StaticRating } from "./component/staticrating";
 import { Header } from "./component/header";
 
@@ -51,7 +52,7 @@ const Layout = () => {
     const basename = process.env.BASENAME || "";
 
 
-    const [menu, setMenu] = useState('listings')
+    const [menu, setMenu] = useState('listings');
     const [myWHistory, setMyWHistory] = useState([]);
     const [myListings, setMyListings] = useState([])
     const [workerListings, setWorkerListings] = useState([])
@@ -94,7 +95,7 @@ const Layout = () => {
                 }
             }>
                 <BrowserRouter basename={basename}>
-                    <Navbar/>
+                    {/* <Navbar/> */}
                     <ScrollToTop>
 
                         <Routes>
@@ -112,6 +113,7 @@ const Layout = () => {
                             <Route element={<StaticRating />} path="staticrating" />
                             <Route element={<WHistory />} path="/whistory" />
                             <Route element={<MyListings />} path="/mylistings" />
+                            <Route element={<TestLayout/>} path="/testlayout" />
                             <Route element={<MyPayments />} path="/mypayments" />
                             <Route element={<AddProperty />} path="/addproperty" />
                             <Route element={<History />} path="/history" />
